@@ -36,8 +36,8 @@ public class UserEntity {
 
     private String zip;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<PhotoEntity> photos;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+//    private List<PhotoEntity> photos;
 
     public UserEntity(User user) {
         this.id = user.getId();

@@ -8,6 +8,7 @@
   <properties>
     <compiler-plugin.version>3.12.1</compiler-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
+    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
@@ -15,7 +16,6 @@
     <quarkus.platform.version>3.7.4</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.2.5</surefire-plugin.version>
-    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -39,15 +39,15 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-postgresql</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-validator</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -73,12 +73,12 @@
       <artifactId>mapstruct</artifactId>
       <version>${org.mapstruct.version}</version>
     </dependency>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.30</version>
-        <scope>provided</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -141,7 +141,6 @@
         <configuration>
           <parameters>${maven.compiler.parameters}</parameters>
           <annotationProcessorPaths>
-            <!-- Your existing annotation processor(s)... -->
             <path>
               <groupId>io.quarkus</groupId>
               <artifactId>quarkus-panache-common</artifactId>
@@ -157,7 +156,6 @@
               <artifactId>lombok</artifactId>
               <version>1.18.30</version>
             </path>
-
           </annotationProcessorPaths>
         </configuration>
       </plugin>

@@ -1,5 +1,6 @@
 package org.solidbyte.editeaqui.domain.validator;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
+@ApplicationScoped
 public class ModelValidator {
 
     private final Validator validator;

@@ -8,6 +8,7 @@ import org.solidbyte.editeaqui.domain.model.user.UserModelBuilder;
 @ApplicationScoped
 @AllArgsConstructor
 public class EntityUtils {
+
     private final UserModelBuilder userBuilder;
 
     public User user(UserEntity userEntity) {
@@ -24,22 +25,4 @@ public class EntityUtils {
         return userBuilder.build(id, name, email, password, phone, address, city, state,zip, country);
     }
 
-
-
-//    public Comment comment(CommentEntity commentEntity) {
-//        return commentBuilder.build(
-//                commentEntity.getId(),
-//                user(commentEntity.getAuthor()),
-//                article(commentEntity.getArticle()),
-//                commentEntity.getBody(),
-//                commentEntity.getCreatedAt(),
-//                commentEntity.getUpdatedAt());
-//    }
-//
-//    public FavoriteRelationship favoriteRelationship(
-//            FavoriteRelationshipEntity favoriteRelationshipEntity) {
-//        return new FavoriteRelationship(
-//                user(favoriteRelationshipEntity.getUser()),
-//                article(favoriteRelationshipEntity.getArticle()));
-//    }
 }
