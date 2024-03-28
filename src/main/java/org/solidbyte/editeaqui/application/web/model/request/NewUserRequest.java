@@ -31,6 +31,6 @@ public class NewUserRequest {
     private String zip;
 
     public CreateUserInput toCreateUserInput() {
-        return new CreateUserInput(this.name, this.email, this.password, this.phone, this.address, this.city, this.state, this.country, this.zip);
+        return new CreateUserInput(this.name, this.email, this.password, this.phone, this.address, this.city, this.state, this.country, this.zip, true);
     }
 }

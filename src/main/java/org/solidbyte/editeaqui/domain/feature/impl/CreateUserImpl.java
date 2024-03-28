@@ -19,7 +19,7 @@ public class CreateUserImpl implements CreateUser {
     @Override
     public User handle(CreateUserInput createUserInput) {
         final var user =
-                userBuilder.build(null,
+                userBuilder.build(
                         createUserInput.getName(),
                         createUserInput.getEmail(),
                         createUserInput.getPassword(),
@@ -28,7 +28,9 @@ public class CreateUserImpl implements CreateUser {
                         createUserInput.getCity(),
                         createUserInput.getState(),
                         createUserInput.getZip(),
-                        createUserInput.getCountry());
+                        createUserInput.getCountry(),
+                        createUserInput.isActive());
+
 //        checkExistingUsername(user.getName());
         checkExistingEmail(user.getEmail());
         userRepository.save(user);

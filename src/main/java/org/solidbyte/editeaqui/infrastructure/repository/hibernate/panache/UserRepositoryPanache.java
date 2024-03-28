@@ -38,7 +38,8 @@ public class UserRepositoryPanache extends AbstractPanacheRepository<UserEntity,
 
     @Override
     public Optional<User> findUserById(UUID id) {
-        return findByIdOptional(id).map(entityUtils::user);
+        Optional<User> user = findByIdOptional(id).map(entityUtils::user);
+        return user;
     }
 
     @Override
@@ -59,9 +60,13 @@ public class UserRepositoryPanache extends AbstractPanacheRepository<UserEntity,
 
     @Override
     public void update(User user) {
-        final var userEntity = findById(user.getId());
+        final var id = UUID.fromString("73c660cb-e0cc-4720-9459-ec17202f72c4");
+
+        final var idTest = user.getId();
+        final var userEntity = findById(idTest);
         userEntity.update(user);
     }
+
 
     @Override
     public Optional<User> findByUsername(String username) {

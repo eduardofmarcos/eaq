@@ -1,14 +1,10 @@
 package org.solidbyte.editeaqui.domain.model.user;
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.solidbyte.editeaqui.domain.model.constants.ValidationMessages;
-
 
 import java.util.UUID;
 
@@ -16,7 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class User {
 
-    @NotNull private UUID id;
+    @NotNull
+    private UUID id;
 
     @NotBlank(message = ValidationMessages.NAME_MUST_BE_NOT_BLANK)
     private String name;
@@ -44,5 +41,7 @@ public class User {
 
     @NotBlank(message = ValidationMessages.COUNTRY_MUST_BE_NOT_BLANK)
     private String country;
+
+    private boolean isActive;
 
 }

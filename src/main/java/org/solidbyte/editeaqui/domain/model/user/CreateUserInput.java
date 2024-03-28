@@ -15,4 +15,5 @@ public class CreateUserInput {
     private String state;
     private String zip;
     private String country;
+    private boolean isActive;
 }

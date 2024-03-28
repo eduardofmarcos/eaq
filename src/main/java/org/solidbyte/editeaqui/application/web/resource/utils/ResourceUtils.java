@@ -3,11 +3,6 @@ package org.solidbyte.editeaqui.application.web.resource.utils;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.AllArgsConstructor;
 
-import java.security.Principal;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
 @ApplicationScoped
 @AllArgsConstructor
 public class ResourceUtils {

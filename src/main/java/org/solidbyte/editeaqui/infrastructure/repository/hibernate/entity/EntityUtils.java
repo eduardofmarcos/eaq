@@ -22,7 +22,9 @@ public class EntityUtils {
         final var state = userEntity.getState();
         final var zip = userEntity.getZip();
         final var country = userEntity.getCountry();
-        return userBuilder.build(id, name, email, password, phone, address, city, state,zip, country);
+        final var isActive = userEntity.isActive();
+
+        return userBuilder.build(id, name, email, password, phone, address, city, state, zip, country, isActive);
     }
 
 }
