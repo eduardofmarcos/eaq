@@ -23,7 +23,7 @@ public class UpdateUserImpl implements UpdateUser {
 
     @Override
     public User handle(UpdateUserInput updateUserInput) {
-        final var user = findUserById.handle(updateUserInput.getId());
+        final User user = findUserById.handle(updateUserInput.getId());
 
         checkValidations(updateUserInput, updateUserInput.getId());
         updateFields(user, updateUserInput);

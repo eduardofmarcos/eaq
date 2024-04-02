@@ -18,7 +18,7 @@ public class CreateUserImpl implements CreateUser {
 
     @Override
     public User handle(CreateUserInput createUserInput) {
-        final var user =
+        final User user =
                 userBuilder.build(
                         createUserInput.getName(),
                         createUserInput.getEmail(),

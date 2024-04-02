@@ -1,6 +1,5 @@
 package org.solidbyte.editeaqui.domain.feature;
 
-import org.solidbyte.editeaqui.domain.model.user.DeleteUserInput;
 import org.solidbyte.editeaqui.domain.model.user.User;
 
 import java.util.UUID;

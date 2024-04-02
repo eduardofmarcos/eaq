@@ -6,6 +6,7 @@ import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.solidbyte.editeaqui.domain.exception.ModelValidationException;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,7 +20,7 @@ public class ModelValidator {
         Set<ConstraintViolation<T>> constraintViolations = validator.validate(model);
 
         if (!constraintViolations.isEmpty()) {
-            final var messages =
+            final List<String> messages =
                     constraintViolations.stream()
                             .map(ConstraintViolation::getMessage)
                             .collect(Collectors.toList());

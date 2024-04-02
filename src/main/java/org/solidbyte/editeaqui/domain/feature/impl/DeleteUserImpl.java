@@ -16,13 +16,13 @@ import java.util.UUID;
 @ApplicationScoped
 public class DeleteUserImpl implements DeleteUser {
 
-    final FindUserById findUserById;
+    private final FindUserById findUserById;
     private final UserRepository userRepository;
     private final ModelValidator modelValidator;
 
     @Override
     public User handle(UUID uuid) {
-        final var user =  findUserById.handle(uuid);
+        final User user =  findUserById.handle(uuid);
         updateFields(user);
         userRepository.update(modelValidator.validate(user));
         return null;

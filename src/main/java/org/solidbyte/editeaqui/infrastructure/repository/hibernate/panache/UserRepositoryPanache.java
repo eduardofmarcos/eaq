@@ -60,10 +60,10 @@ public class UserRepositoryPanache extends AbstractPanacheRepository<UserEntity,
 
     @Override
     public void update(User user) {
-        final var id = UUID.fromString("73c660cb-e0cc-4720-9459-ec17202f72c4");
+        final UUID id = UUID.fromString("73c660cb-e0cc-4720-9459-ec17202f72c4");
 
-        final var idTest = user.getId();
-        final var userEntity = findById(idTest);
+        final UUID idTest = user.getId();
+        final UserEntity userEntity = findById(idTest);
         userEntity.update(user);
     }
 
