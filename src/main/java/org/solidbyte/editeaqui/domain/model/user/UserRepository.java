@@ -12,8 +12,6 @@ public interface UserRepository {
 
     Optional<User> findUserById(UUID id);
 
-    boolean existsUsername(UUID excludeId, String username);
-
     boolean existsEmail(UUID excludeId, String email);
 
     void update(User user);

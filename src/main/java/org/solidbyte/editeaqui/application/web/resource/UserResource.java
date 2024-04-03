@@ -15,10 +15,9 @@ import org.solidbyte.editeaqui.domain.feature.UpdateUser;
 import org.solidbyte.editeaqui.domain.model.constants.ValidationMessages;
 import org.solidbyte.editeaqui.domain.model.user.User;
 
-
 import java.util.UUID;
 
-@Path("users")
+@Path("user")
 @AllArgsConstructor
 public class UserResource {
 
@@ -32,7 +31,7 @@ public class UserResource {
     public Response read() {
         final UUID userID = UUID.fromString("82587421-677f-4c58-901c-8db19c6e1bc0");
         final User user = findUserById.handle(userID);
-        return Response.ok(new UserResponse(user,"mock-token-value")).status(Response.Status.OK).build();
+        return Response.ok(new UserResponse(user, "mock-token-value")).status(Response.Status.OK).build();
     }
 
 
@@ -45,7 +44,7 @@ public class UserResource {
             UpdateUserRequest updateUserRequest) {
         final UUID userID = UUID.fromString("82587421-677f-4c58-901c-8db19c6e1bc0");
         final User user = updateUser.handle(updateUserRequest.toUpdateUserInput(userID));
-        return Response.ok(user).status(Response.Status.OK).build();
+        return Response.ok(new UserResponse(user, "token-mock-value")).status(Response.Status.OK).build();
     }
 
     @DELETE
@@ -53,9 +52,9 @@ public class UserResource {
     public Response delete() {
 
         final UUID userID = UUID.fromString("82587421-677f-4c58-901c-8db19c6e1bc0");
-        final User user = deleteUser.handle(userID);
+        deleteUser.handle(userID);
 
-        return Response.ok(user).status(Response.Status.NO_CONTENT).build();
+        return Response.ok().status(Response.Status.NO_CONTENT).build();
     }
 
 }

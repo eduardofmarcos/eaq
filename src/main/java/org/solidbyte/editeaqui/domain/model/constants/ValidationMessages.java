@@ -7,6 +7,8 @@ public class ValidationMessages {
     public static final String NAME_MUST_BE_NOT_BLANK = "name must be not blank";
     public static final String EMAIL_MUST_BE_NOT_BLANK = "email must be not blank";
     public static final String PASSWORD_MUST_BE_NOT_BLANK = "password must be not blank";
+
+    public static final String CPF_MUST_BE_NOT_BLANK = "cpf must be not blank";
     public static final String PHONE_MUST_BE_NOT_BLANK = "phone must be not blank";
     public static final String ADDRESS_MUST_BE_NOT_BLANK = "address must be not blank";
     public static final String CITY_MUST_BE_NOT_BLANK = "city must be not blank";

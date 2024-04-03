@@ -3,15 +3,12 @@ package org.solidbyte.editeaqui.domain.feature.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.AllArgsConstructor;
-import org.solidbyte.editeaqui.domain.exception.NameAlreadyExistsException;
 import org.solidbyte.editeaqui.domain.feature.FindUserById;
 import org.solidbyte.editeaqui.domain.feature.UpdateUser;
 import org.solidbyte.editeaqui.domain.model.user.UpdateUserInput;
 import org.solidbyte.editeaqui.domain.model.user.User;
 import org.solidbyte.editeaqui.domain.model.user.UserRepository;
 import org.solidbyte.editeaqui.domain.validator.ModelValidator;
-
-import java.util.UUID;
 
 @AllArgsConstructor
 @ApplicationScoped
@@ -25,7 +22,6 @@ public class UpdateUserImpl implements UpdateUser {
     public User handle(UpdateUserInput updateUserInput) {
         final User user = findUserById.handle(updateUserInput.getId());
 
-        checkValidations(updateUserInput, updateUserInput.getId());
         updateFields(user, updateUserInput);
         userRepository.update(modelValidator.validate(user));
         return user;
@@ -63,21 +59,8 @@ public class UpdateUserImpl implements UpdateUser {
 
     }
 
-    private void checkValidations(UpdateUserInput updateUserInput, UUID excludeId) {
-
-        if (isPresent(updateUserInput.getName())) {
-            checkUsername(excludeId, updateUserInput.getName());
-        }
-    }
-
     private boolean isPresent(String property) {
         return property != null && !property.isEmpty();
-    }
-
-    private void checkUsername(UUID selfId, String username) {
-        if (userRepository.existsUsername(selfId, username)) {
-            throw new NameAlreadyExistsException();
-        }
     }
 
 }

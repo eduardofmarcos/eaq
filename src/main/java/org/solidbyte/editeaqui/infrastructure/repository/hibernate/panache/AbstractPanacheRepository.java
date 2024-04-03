@@ -13,20 +13,6 @@ public class AbstractPanacheRepository<ENTITY, ID> implements PanacheRepositoryB
         return getEntityManager().find(UserEntity.class, id);
     }
 
-
-//    protected FavoriteRelationshipEntity findFavoriteRelationshipEntityByKey(
-//            FavoriteRelationship favoriteRelationship) {
-//
-//        final var userEntity = findUserEntityById(favoriteRelationship.getUser().getId());
-//        final var articleEntity = findArticleEntityById(favoriteRelationship.getArticle().getId());
-//
-//        final var favoriteRelationshipEntityKey = new FavoriteRelationshipEntityKey();
-//        favoriteRelationshipEntityKey.setUser(userEntity);
-//        favoriteRelationshipEntityKey.setArticle(articleEntity);
-//
-//        return getEntityManager().find(FavoriteRelationshipEntity.class, favoriteRelationshipEntityKey);
-//    }
-
     protected boolean isNotEmpty(List<?> list) {
         return list != null && !list.isEmpty();
     }

@@ -31,17 +31,10 @@ public class CreateUserImpl implements CreateUser {
                         createUserInput.getCountry(),
                         createUserInput.isActive());
 
-//        checkExistingUsername(user.getName());
         checkExistingEmail(user.getEmail());
         userRepository.save(user);
         return user;
     }
-
-//    private void checkExistingUsername(String name) {
-//        if (userRepository.existsBy("name", name)) {
-//            throw new UsernameAlreadyExistsException();
-//        }
-//    }
 
     private void checkExistingEmail(String email) {
         if (userRepository.existsBy("email", email)) {

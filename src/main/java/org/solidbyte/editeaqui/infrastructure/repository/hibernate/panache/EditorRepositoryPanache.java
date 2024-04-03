@@ -2,10 +2,10 @@ package org.solidbyte.editeaqui.infrastructure.repository.hibernate.panache;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.AllArgsConstructor;
-import org.solidbyte.editeaqui.domain.model.user.User;
-import org.solidbyte.editeaqui.domain.model.user.UserRepository;
+import org.solidbyte.editeaqui.domain.model.editor.Editor;
+import org.solidbyte.editeaqui.domain.model.editor.EditorRepository;
+import org.solidbyte.editeaqui.infrastructure.repository.hibernate.entity.EditorEntity;
 import org.solidbyte.editeaqui.infrastructure.repository.hibernate.entity.EntityUtils;
-import org.solidbyte.editeaqui.infrastructure.repository.hibernate.entity.UserEntity;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -14,14 +14,14 @@ import static io.quarkus.panache.common.Parameters.with;
 
 @ApplicationScoped
 @AllArgsConstructor
-public class UserRepositoryPanache extends AbstractPanacheRepository<UserEntity, UUID>
-        implements UserRepository {
+public class EditorRepositoryPanache extends AbstractPanacheRepository<EditorEntity, UUID>
+        implements EditorRepository {
 
     private final EntityUtils entityUtils;
 
     @Override
-    public void save(User user) {
-        persist(new UserEntity(user));
+    public void save(Editor editor) {
+        persist(new EditorEntity(editor));
     }
 
     @Override
@@ -30,16 +30,16 @@ public class UserRepositoryPanache extends AbstractPanacheRepository<UserEntity,
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
+    public Optional<Editor> findByEmail(String email) {
         return find("upper(email)", email.toUpperCase().trim())
                 .firstResultOptional()
-                .map(entityUtils::user);
+                .map(entityUtils::editor);
     }
 
     @Override
-    public Optional<User> findUserById(UUID id) {
-        Optional<User> user = findByIdOptional(id).map(entityUtils::user);
-        return user;
+    public Optional<Editor> findEditorById(UUID id) {
+        Optional<Editor> editor = findByIdOptional(id).map(entityUtils::editor);
+        return editor;
     }
 
     @Override
@@ -51,19 +51,19 @@ public class UserRepositoryPanache extends AbstractPanacheRepository<UserEntity,
     }
 
     @Override
-    public void update(User user) {
+    public void update(Editor editor) {
         final UUID id = UUID.fromString("73c660cb-e0cc-4720-9459-ec17202f72c4");
 
-        final UUID idTest = user.getId();
-        final UserEntity userEntity = findById(idTest);
-        userEntity.update(user);
+        final UUID idTest = editor.getId();
+        final EditorEntity editorEntity = findById(idTest);
+        editorEntity.update(editor);
     }
 
 
     @Override
-    public Optional<User> findByUsername(String username) {
-        return find("upper(username)", username.toUpperCase().trim())
+    public Optional<Editor> findByEditorName(String editorname) {
+        return find("upper(editorName)", editorname.toUpperCase().trim())
                 .firstResultOptional()
-                .map(entityUtils::user);
+                .map(entityUtils::editor);
     }
 }

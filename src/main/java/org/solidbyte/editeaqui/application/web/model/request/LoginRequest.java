@@ -5,7 +5,6 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
-
 import org.solidbyte.editeaqui.domain.model.constants.ValidationMessages;
 import org.solidbyte.editeaqui.domain.model.user.LoginUserInput;
 

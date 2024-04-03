@@ -34,14 +34,14 @@ public class UserResponse {
     private String token;
 
     public UserResponse(User user, String token) {
-       this.name = user.getName();
-       this.email = user.getEmail();
-       this.phone = user.getPhone();
-       this.address = user.getAddress();
-       this.city = user.getCity();
-       this.state = user.getState();
-       this.country= user.getCountry();
-       this.zip = user.getZip();
-       this.token = token;
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.phone = user.getPhone();
+        this.address = user.getAddress();
+        this.city = user.getCity();
+        this.state = user.getState();
+        this.country = user.getCountry();
+        this.zip = user.getZip();
+        this.token = token;
     }
 }
