@@ -18,4 +18,9 @@ public class ValidationMessages {
 
     public static final String COUNTRY_MUST_BE_NOT_BLANK = "country must be not blank";
 
+
+    public static final String PRICE_MUST_BE_NOT_BLANK = "price must be not blank";
+
+    public static final String DESCRIPTION_MUST_BE_NOT_BLANK = "description must be not blank";
+    public static final String FILENAME_MUST_BE_NOT_BLANK = "filename must be not blank";
 }

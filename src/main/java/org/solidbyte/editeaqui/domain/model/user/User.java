@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.solidbyte.editeaqui.domain.model.constants.ValidationMessages;
+import org.solidbyte.editeaqui.domain.model.photo.Photo;
 
 import java.util.UUID;
 
@@ -43,5 +44,6 @@ public class User {
     private String country;
 
     private boolean isActive;
+
 
 }

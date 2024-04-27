@@ -51,7 +51,7 @@ public class UserResource {
     @Transactional
     public Response delete() {
 
-        final UUID userID = UUID.fromString("82587421-677f-4c58-901c-8db19c6e1bc0");
+        final UUID userID = UUID.fromString("82587421-677f-4c58-901c-8db19c6ebc0");
         deleteUser.handle(userID);
 
         return Response.ok().status(Response.Status.NO_CONTENT).build();

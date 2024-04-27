@@ -1,14 +1,13 @@
 package org.solidbyte.editeaqui.infrastructure.repository.hibernate.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.solidbyte.editeaqui.domain.model.user.User;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -42,8 +41,8 @@ public class UserEntity {
     private boolean isActive;
 
 
-    //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-//    private List<PhotoEntity> photos;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PhotoEntity> photos;
 
     public UserEntity(User user) {
         this.id = user.getId();
