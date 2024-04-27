@@ -19,7 +19,7 @@ import org.solidbyte.editeaqui.domain.model.editor.Editor;
 
 @Path("editors")
 @AllArgsConstructor
-public class EditorResource {
+public class EditorsResource {
 
     private final CreateEditor createEditor;
 
