@@ -2,6 +2,7 @@ package org.solidbyte.editeaqui.domain.feature.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.AllArgsConstructor;
+import org.solidbyte.editeaqui.domain.exception.EditorNotFoundException;
 import org.solidbyte.editeaqui.domain.exception.UserNotFoundException;
 import org.solidbyte.editeaqui.domain.feature.FindEditorById;
 import org.solidbyte.editeaqui.domain.model.editor.Editor;
@@ -17,7 +18,7 @@ public class FindEditorByIdImpl implements FindEditorById {
 
     @Override
     public Editor handle(UUID id) {
-        Editor editor = editorRepository.findEditorById(id).orElseThrow(UserNotFoundException::new);
+        Editor editor = editorRepository.findEditorById(id).orElseThrow(EditorNotFoundException::new);
         return editor;
     }
 }
